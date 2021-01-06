@@ -1,30 +1,41 @@
-from flask import Flask, render_template, url_for, flash, redirect
-from wtforms.validators import DataRequired
-from flask_wtf import FlaskForm
-from wtforms import Form, TextAreaField, TextField, SubmitField, StringField
+from flask import Flask, render_template, request
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
-
-
-class ReviewForm(FlaskForm):
-    fname = StringField('First Name', validators=[DataRequired()])
-    product = StringField(
-        'Product Name', validators=[DataRequired()])
-    review = TextAreaField('Review', validators=[DataRequired()])
-    submit = SubmitField('Publish Review')
+posts = [
+    {
+        'Name': 'abcd',
+        'Product Name': 'cooler',
+        'Review': 'nice'
+    },
+    {
+        'Name': 'efgh',
+        'Product Name': 'heater',
+        'Review': 'lmao'
+    },
+    {
+        'Name': 'ijkl',
+        'Product Name': 'machine',
+        'Review': 'lol'
+    }
+]
 
 
 @app.route('/', methods=["GET", "POST"])
 @app.route('/index', methods=["GET", "POST"])
-def review():
-    form = ReviewForm()
-    if form.validate_on_submit():
-        flash('Review Sumbitted', 'success')
-        return redirect(url_for('review'))
-    else:
-        flash('Unsuccessful. Please check again', 'danger')
-    return render_template('index.html', form=form)
+def home():
+    if request.method == "POST":
+        print(request.form)
+        posts.insert(
+            0,
+            {
+                'Name': request.form.get('name'),
+                'Product Name': request.form.get('product'),
+                'Review': request.form.get('review')
+            }
+        )
+    return render_template('index.jinja2', reviews=posts)
 
 
 if __name__ == "__main__":

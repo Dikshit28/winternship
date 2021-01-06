@@ -7,13 +7,12 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">-->
-        <link rel="stylesheet" href="/week1/static/style.css">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <!--<link rel="stylesheet" href="/week1/static/style.css">-->
         <title>Customer Review WebApp</title>
     </head>
 
     <body>
-        <!--{% block body %}-->
         <header>
             <div>Customer Review WebApp</div>
             <nav>
@@ -62,7 +61,7 @@
         </div>
         <div class="reviews" id="read">
             <br>
-            <!--{% for review in reviews %}-->
+            {% for review in reviews %}
             <div class="borders">
                 <h3 class="name">User : {{review['Name']}}</h3>
                 <h3 class="product">Product Name: {{review['Product Name']}}</h3>
@@ -71,9 +70,8 @@
                     {{review['Review']}}
                 </p>
             </div>
-            <!--{% endfor %}-->
+            {% endfor %}
         </div>
-        <!--{% endblock %}-->
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
