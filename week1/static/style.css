@@ -31,7 +31,7 @@ header {
 }
 header div {
   position: relative;
-  top: 45%;
+  top: 40%;
   margin: 0rem auto;
   font-size: 5rem;
 }
@@ -41,7 +41,7 @@ header div:hover {
 nav {
   display: inline;
   position: relative;
-  top: 50%;
+  top: 45%;
   margin: auto;
 }
 header ul {
@@ -72,4 +72,8 @@ a:hover {
   width: 100%;
   text-align: center;
   height: 100vh;
+}
+.my-form {
+  background-color: red;
+  margin: 1rem;
 }
