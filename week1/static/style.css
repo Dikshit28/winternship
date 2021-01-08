@@ -161,3 +161,8 @@ input[type="submit"]:hover {
   position: relative;
   padding: 1rem;
 }
+.name .product .review-header .review {
+  width: 88%;
+  margin-left: auto;
+  margin-right: auto;
+}

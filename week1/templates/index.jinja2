@@ -63,11 +63,11 @@
             <br>
             {% for review in reviews %}
             <div class="borders">
-                <h3 class="name">User : {{review['Name']}}</h3>
-                <h3 class="product">Product Name: {{review['Product Name']}}</h3>
+                <h3 class="name">User : {{review[0]}}</h3>
+                <h3 class="product">Product Name: {{review[1]}}</h3>
                 <h3 class="review-header">Review: </h3>
                 <p class="review">
-                    {{review['Review']}}
+                    {{review[2]}}
                 </p>
             </div><br>
             {% endfor %}
