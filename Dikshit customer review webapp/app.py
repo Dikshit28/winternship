@@ -11,8 +11,8 @@ posts = []
 @app.route('/index', methods=["GET", "POST"])
 def home():
     # DATABASE INITIALIZE
-    database_read = open("week1/database/reviews.csv", "r", newline='')
-    database_write = open("week1/database/reviews.csv", "a", newline='')
+    database_read = open("../week1/database/reviews.csv", "r", newline='')
+    database_write = open("../week1/database/reviews.csv", "a", newline='')
     reader_obj = csv.reader(database_read)
     writer_obj = csv.writer(database_write)
     # DATABASE INITIALIZED
